@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span class="text-weight-bold text-h6">Categorias</span>
+    <span class="text-weight-bold text-subtitle1">Categorias</span>
     <div class="scrolling-wrapper">
       <q-card
         v-for="(category, index) in categories"

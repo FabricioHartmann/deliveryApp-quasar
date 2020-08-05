@@ -8,7 +8,7 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-header> -->
-    <q-page-container class="" >
+    <q-page-container class="bg-grey-4" >
       <router-view />
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
         <q-fab icon="add" direction="up" color="primary">
