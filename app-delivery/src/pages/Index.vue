@@ -1,12 +1,12 @@
 <template>
-  <q-page class=" q-pa-sm">
+  <q-page class="q-pa-sm">
     <div>
       <spot-light-card :spot="spot" />
     </div>
     <div class="q-mt-sm">
       <categories-menu :categories="categories" />
     </div>
-    <div class="q-mt-sm">
+    <div class="q-mt-sm" style="">
       <last-request :lastRequests="lastRequests" />
     </div>
   </q-page>
@@ -22,11 +22,17 @@ export default {
   data() {
     return {
       categories: [
-        { name: "Burgers", img: "~assets/categories/burgers.jpg" },
-        { name: "Combos", img: "~assets/categories/combos.jpg" },
-        { name: "Pizzas", img: "~assets/categories/acompanhamentos.jpg" },
-        { name: "Porções", img: "~assets/categories/burgers.jpg" },
-        { name: "Bebidas", img: "~assets/categories/burgers.jpg" }
+        { name: "Burgers", img: require("../assets/categories/burgers.jpg") },
+        { name: "Combos", img: require("../assets/categories/combos.jpg") },
+        { name: "Porções", img: require("../assets/categories/drinks.jpg") },
+        {
+          name: "Bebidas",
+          img: require("../assets/categories/acompanhamentos.jpg")
+        },
+        {
+          name: "Doces",
+          img: require("../assets/categories/desserts.jpg")
+        }
       ],
       spot: {
         name: "Double Cheddar Bacon",
@@ -52,7 +58,7 @@ export default {
         {
           name: "X-Burger",
           ingredients: "Pão, carne e queijo",
-          price: "13.90",
+          price: "11.90",
           date: "14/07/2020"
         }
       ]

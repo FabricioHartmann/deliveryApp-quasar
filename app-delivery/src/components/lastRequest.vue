@@ -1,31 +1,38 @@
 <template>
-  <div >
-    <span class="text-weight-bold text-subtitle1">Histórico</span>
+  <div>
+    <div style="color:white " class="text-weight-bold text-subtitle1">Histórico</div>
     <div class="scrolling-wrapper">
       <q-card
-        class="hzreq q-mr-sm"
-        v-for="(category, index) in lastRequests"
+        class="hzreq blured q-mr-md"
+        v-for="(last, index) in lastRequests"
         :key="index"
       >
-        <q-card-section>
-      <div class="row">
-        <div class="col-4">
-          paaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        <div style="height:7vh" class="row">
+          <q-chip outline class="text-weight-bold">
+            {{ last.date }}
+          </q-chip>
+          <q-space />
         </div>
-        <div class="col q-ml-sm text-subtitle2 text-weight-bold">
-         
+        <div style="height:8vh" class="row q-mx-sm justify-end">
+          <div class="text-weight-bold">
+            {{ last.name }}
+          <q-btn icon="mdi-nutrition" class="q-mx-sm" outline size="xs">
+            <q-tooltip anchor="bottom middle" self="top middle">
+              <span class="text-subtitle2">{{ last.ingredients }}</span>
+            </q-tooltip>
+          </q-btn>
+          </div>
+          <q-space />
         </div>
-      </div>
-      <div class="row q-mt-sm">
-        <q-btn
-          dense
-          class="full-width"
-          color="primary"
-          style="font-size:2vh"
-          label="Adicionar ao Carrinho"
-        />
-      </div>
-    </q-card-section>
+        <div class="row q-mt-sm q-ma-xs">
+          <q-btn color="black" class="col q-ma-xs " style="height:7vh">
+            <q-icon color="white" name="mdi-cart-outline" />
+          </q-btn>
+          <div class="col q-ma-xs text-weight-bold">
+            <div>R$</div>
+            <div class="price-tag">{{ last.price }}</div>
+          </div>
+        </div>
       </q-card>
     </div>
   </div>
@@ -33,6 +40,7 @@
 <script>
 export default {
   name: "categories",
+  ratingModel: 1,
   components: {},
   data() {
     return {};
@@ -44,17 +52,3 @@ export default {
   }
 };
 </script>
-<style>
-.scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  
-}
-.hzreq {
-  white-space: nowrap;
-  display: inline-block;
-  width: 55vw;
-  height: 30vh;
-}
-
-</style>

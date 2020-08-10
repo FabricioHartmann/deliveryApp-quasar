@@ -1,42 +1,40 @@
 <template>
-  <q-card>
-    <q-card-section>
-      <div class="row">
+  <q-card class="blured">
+    <q-card-section >
+      <div  class="row">
         <div class="col">
-          <q-img src="~assets/burgers/cheddar-burger.jpg" height="100%">
-            <q-badge
-              style="opacity:0.7; height:5vh; bottom:0px;right:0px;"
-              color="red"
-            >
-              <span class=""> - {{ spot.discount }}</span>
-            </q-badge>
+          <q-img
+            class="rounded-borders"
+            src="~assets/burgers/cheddar-burger.jpg"
+            height="15vh"
+            style="min-height:70px"
+          >
+            <div class="absolute-bottom-right">
+            {{spot.discount}} OFF
+          </div>
           </q-img>
         </div>
         <div class="col q-ml-sm text-subtitle2 text-weight-bold">
           <span>{{ spot.name }}</span>
-          <q-icon size="3.5vh" name="mdi-information-outline">
-            <q-tooltip anchor="bottom middle" self="top middle"
-              >
+          <q-btn icon="mdi-nutrition" class="q-mx-sm" outline size="xs">
+            <q-tooltip anchor="bottom middle" self="top middle">
               <span class="text-subtitle2">{{ spot.ingredients }}</span>
             </q-tooltip>
-          </q-icon>
+          </q-btn>
           <br />
-          <span style="text-decoration: line-through;">{{
-            spot.oldPrice
-          }}</span>
-          <span
-            class="secondary"
-            style=" font-size:18px; color:rgb(252, 114, 0);font-weight: 999;"
-          >
-            R$ {{ spot.price }}</span
-          >
+          <!-- style="text-decoration: line-through;" -->
+          <div class="row q-ma-xs text-weight-bold">
+            <div style="font-size: 12px; text-decoration: line-through;">
+              R${{ spot.oldPrice }}
+            </div>
+            <div class="price-tag">{{ spot.price }}</div>
+          </div>
         </div>
       </div>
       <div class="row q-mt-sm">
         <q-btn
-          dense
-          class="full-width"
-          color="primary"
+          class=" full-width "
+          color="black"
           style="font-size:2vh"
           label="Adicionar ao Carrinho"
         />
@@ -61,4 +59,3 @@ export default {
   }
 };
 </script>
-<style></style>
