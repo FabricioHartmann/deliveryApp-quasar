@@ -4,7 +4,7 @@
         v-model="tab"
         indicator-color="secondary"
         active-color="white"
-        class="text-grey-9"
+        class="text-grey-10"
       >
         <q-route-tab exact to="/" name="home" icon="mdi-home"/>
         <q-route-tab exact to="/cardapio" name="cardapio" icon="mdi-food"  />

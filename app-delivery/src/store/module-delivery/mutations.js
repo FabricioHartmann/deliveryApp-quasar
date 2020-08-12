@@ -1,2 +1,3 @@
-export function someMutation (/* state */) {
-}
+export function SET_CATEGORY(store, payload) {
+    store.category = payload.category;
+  }

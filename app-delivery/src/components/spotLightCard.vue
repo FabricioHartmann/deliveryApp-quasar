@@ -1,5 +1,5 @@
 <template>
-  <q-card class="blured">
+  <q-card class="">
     <q-card-section >
       <div  class="row">
         <div class="col">

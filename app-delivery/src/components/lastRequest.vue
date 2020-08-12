@@ -3,7 +3,7 @@
     <div style="color:white " class="text-weight-bold text-subtitle1">Histórico</div>
     <div class="scrolling-wrapper">
       <q-card
-        class="hzreq blured q-mr-md"
+        class="hzreq q-mr-md"
         v-for="(last, index) in lastRequests"
         :key="index"
       >

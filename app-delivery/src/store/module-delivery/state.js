@@ -1,5 +1,6 @@
-export default function () {
+export default function() {
   return {
+    category: 0,
     cart: [
       {
         id: 1,
@@ -9,7 +10,7 @@ export default function () {
         category: 1,
         img: "../assets/categories/burgers.jpg"
       },
-       {
+      {
         id: 19,
         name: "X-Salada",
         igredients: "Pão, carne, queijo e salada",
@@ -24,7 +25,7 @@ export default function () {
         price: "5.50",
         category: 4,
         img: null
-      },
+      }
     ]
-  }
+  };
 }
