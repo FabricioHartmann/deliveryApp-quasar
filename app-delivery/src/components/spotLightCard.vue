@@ -1,7 +1,7 @@
 <template>
   <q-card class="">
-    <q-card-section >
-      <div  class="row">
+    <q-card-section>
+      <div class="row" style="margin:-7px">
         <div class="col">
           <q-img
             class="rounded-borders"
@@ -9,9 +9,7 @@
             height="15vh"
             style="min-height:70px"
           >
-            <div class="absolute-bottom-right">
-            {{spot.discount}} OFF
-          </div>
+            <div class="absolute-bottom-right">{{ spot.discount }} OFF</div>
           </q-img>
         </div>
         <div class="col q-ml-sm text-subtitle2 text-weight-bold">
@@ -31,15 +29,15 @@
           </div>
         </div>
       </div>
-      <div class="row q-mt-sm">
-        <q-btn
-          class=" full-width "
-          color="black"
-          style="font-size:2vh"
-          label="Adicionar ao Carrinho"
-        />
-      </div>
     </q-card-section>
+    <q-card-actions>
+      <q-btn
+        @click="addToCart(spot)"
+        class=" full-width "
+        color="grey-10"
+        label="Adicionar ao Carrinho"
+      />
+    </q-card-actions>
   </q-card>
 </template>
 
@@ -52,7 +50,17 @@ export default {
       leftDrawerOpen: false
     };
   },
-  methods: {},
+  methods: {
+    addToCart(card) {
+      this.$store.commit("delivery/ADD_TO_CART", card);
+      this.$q.notify({
+        message: "Produto adicionado ao Carrinho",
+        color: "green",
+        position: "top",
+        timeout: 400
+      });
+    }
+  },
   computed: {},
   props: {
     spot: Object

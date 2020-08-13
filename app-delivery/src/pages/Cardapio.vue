@@ -33,7 +33,7 @@
         </q-card>
       </div>
     </div>
-    <div style="height:" class="row">
+    <div class="row">
       <q-tab-panels
         style=" margin-left:-15px; margin-right:-15px"
         v-model="selectedCategory"
@@ -63,15 +63,14 @@
             >
               <q-card style="width:100%; height:33vh; min-height:150px">
                 <q-img :src="card.img" height="12vh"> </q-img>
-                <div
-                  style="height:12vh"
-                  class="q-ma-xs q-mx-sm row justify-end"
-                >
-                  <div class="text-weight-bold">
+                <div class="column q-ma-xs q-mx-sm">
+                  <div class="row text-weight-bold">
                     {{ card.name }}
+                  </div>
+                  <div class="row">
                     <q-btn
+                      v-show="card.ingredients"
                       icon="mdi-nutrition"
-                      class="q-mx-sm"
                       outline
                       size="xs"
                     >
@@ -84,15 +83,18 @@
                   </div>
                   <q-space />
                 </div>
-                <div class="row ">
-                  <q-btn color="black" class="col q-mx-sm " style="height:7vh">
-                    <q-icon color="white" name="mdi-cart-outline" />
+                <q-card-actions class="absolute-bottom">
+                  <q-btn
+                    align="around"
+                    class="col q-ma-xs "
+                    dense
+                    @click="addToCart(card)"
+                    color="grey-10"
+                  >
+                    <q-icon size="xs" name="mdi-cart-outline" />
+                    R$ {{ card.price }}
                   </q-btn>
-                  <div class="col q-ma-xs text-weight-bold">
-                    <div>R$</div>
-                    <div class="price-tag">{{ card.price }}</div>
-                  </div>
-                </div>
+                </q-card-actions>
               </q-card>
             </div>
           </div>
@@ -107,6 +109,7 @@ export default {
   name: "PageCardapio",
   data() {
     return {
+      //arrays que serão preenchidos pela requisição da api
       categories: [
         {
           idCategory: 1,
@@ -236,8 +239,17 @@ export default {
   },
   methods: {
     selectCategory(item, index) {
-       this.$store.commit("delivery/SET_CATEGORY", { category: index });
+      this.$store.commit("delivery/SET_CATEGORY", { category: index });
       console.log(item);
+    },
+    addToCart(card) {
+      this.$store.commit("delivery/ADD_TO_CART", card);
+      this.$q.notify({
+        message: "Produto adicionado ao Carrinho",
+        color: "green",
+        position: "top",
+        timeout: 400
+      });
     }
   },
   computed: {

@@ -8,7 +8,7 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-header> -->
-    <q-page-container style="overflow-x: hidden; background-image: linear-gradient(#383838, black);padding-bottom: 0px">
+    <q-page-container class="backgroundLayout">
       <!-- <q-img
         spinner-color="primary"
         src="~assets/home-bg.jpg"
