@@ -21,13 +21,14 @@ export default {
   name: "PageIndex",
   data() {
     return {
+      //arrays que serão preenchidos pela requisição da api
       categories: [
         { name: "Burgers", img: require("../assets/categories/burgers.jpg") },
         { name: "Combos", img: require("../assets/categories/combos.jpg") },
-        { name: "Porções", img: require("../assets/categories/drinks.jpg") },
+        { name: "Porções", img: require("../assets/categories/acompanhamentos.jpg") },
         {
           name: "Bebidas",
-          img: require("../assets/categories/acompanhamentos.jpg")
+          img: require("../assets/categories/drinks.jpg")
         },
         {
           name: "Doces",
