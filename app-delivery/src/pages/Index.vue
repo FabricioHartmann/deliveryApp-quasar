@@ -16,6 +16,7 @@
 import spotLightCard from "components/spotLightCard.vue";
 import categoriesMenu from "components/categoriesMenu.vue";
 import lastRequest from "components/lastRequest.vue";
+import Axios from "axios";
 
 export default {
   name: "PageIndex",
@@ -25,7 +26,10 @@ export default {
       categories: [
         { name: "Burgers", img: require("../assets/categories/burgers.jpg") },
         { name: "Combos", img: require("../assets/categories/combos.jpg") },
-        { name: "Porções", img: require("../assets/categories/acompanhamentos.jpg") },
+        {
+          name: "Porções",
+          img: require("../assets/categories/acompanhamentos.jpg")
+        },
         {
           name: "Bebidas",
           img: require("../assets/categories/drinks.jpg")
@@ -35,6 +39,7 @@ export default {
           img: require("../assets/categories/desserts.jpg")
         }
       ],
+      produtos: [],
       spot: {
         name: "Double Cheddar Bacon",
         ingredients:
@@ -64,6 +69,23 @@ export default {
         }
       ]
     };
+  },
+  computed:{
+    logged() {
+      return this.$store.getters["delivery/login"];
+    }
+  },
+  methods: {
+    // nesta versão o login é apenas demonstrativo
+    // checando apenas um booleano no vuex, commitado na tela Login
+   checkLogin(){
+     if (this.logged == false){
+       this.$router.push("/login");
+     }
+   }
+  },
+  beforeMount(){
+    this.checkLogin()
   },
   components: { spotLightCard, categoriesMenu, lastRequest }
 };

@@ -4,21 +4,17 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '', component: () => import('pages/Index.vue') },
+      { path: 'cardapio', component: () => import('pages/Cardapio.vue') },
+      { path: 'carrinho', component: () => import('pages/Carrinho.vue') }
     ]
   },
+
   {
-    path: '/cardapio',
-    component: () => import('layouts/MainLayout.vue'),
+    path: '/login',
+    component: () => import('layouts/SecondaryLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Cardapio.vue') }
-    ]
-  },
-  {
-    path: '/carrinho',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Carrinho.vue') }
+      { path: '', component: () => import('pages/Login.vue') }
     ]
   },
 

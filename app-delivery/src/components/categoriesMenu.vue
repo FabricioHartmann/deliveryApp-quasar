@@ -25,8 +25,7 @@
 
 <script>
 export default {
-  name: "categories",
-  components: {},
+  name: "categoriesMenu",
   data() {
     return {};
   },
@@ -38,10 +37,10 @@ export default {
   },
   computed: {
     selectedCategory() {
-      return this.$store.getters["delivery/getCategory"] -1 ;
+      return this.$store.getters["delivery/getCategory"] - 1;
     }
   },
-  
+
   props: {
     categories: Array
   }

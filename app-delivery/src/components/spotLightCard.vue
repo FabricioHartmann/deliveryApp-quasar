@@ -44,7 +44,6 @@
 <script>
 export default {
   name: "spotLightCard",
-  components: {},
   data() {
     return {
       leftDrawerOpen: false

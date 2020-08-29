@@ -4,40 +4,9 @@
       Histórico
     </div>
     <div class="scrolling-wrapper">
-      <!-- <q-card
-        class="hzreq q-mr-md"
-        v-for="(last, index) in lastRequests"
-        :key="index"
-      >
-        <div style="height:7vh" class="row">
-          <q-chip outline class="text-weight-bold">
-            {{ last.date }}
-          </q-chip>
-          <q-space />
-        </div>
-        <div style="height:8vh" class="row q-mx-sm justify-end">
-          <div class="text-weight-bold">
-            {{ last.name }}
-          <q-btn icon="mdi-nutrition" class="q-mx-sm" outline size="xs">
-            <q-tooltip anchor="bottom middle" self="top middle">
-              <span class="text-subtitle2">{{ last.ingredients }}</span>
-            </q-tooltip>
-          </q-btn>
-          </div>
-          <q-space />
-        </div>
-                  <q-space />
-
-        <q-card-actions class=" row ">
-          <q-btn align="around" class="col q-ma-xs " icon="mdi-cart-outline" dense color="black">
-           R$ {{last.price}}
-          </q-btn>
-          
-        </q-card-actions>
-      </q-card> -->
       <q-card
         class="hzreq q-mr-md"
-        style="min-height:160px"
+        style="min-height:150px"
         v-for="(last, index) in lastRequests"
         :key="index"
       >
@@ -61,7 +30,13 @@
           <q-space />
         </div>
         <q-card-actions class="absolute-bottom">
-          <q-btn @click="addToCart(last)" align="around" class="col q-ma-xs " dense color="grey-10">
+          <q-btn
+            @click="addToCart(last)"
+            align="around"
+            class="col q-ma-xs "
+            dense
+            color="grey-10"
+          >
             <q-icon size="xs" name="mdi-cart-outline" />
             R$ {{ last.price }}
           </q-btn>
@@ -73,7 +48,6 @@
 <script>
 export default {
   name: "lastRequest",
-  components: {},
   data() {
     return {};
   },

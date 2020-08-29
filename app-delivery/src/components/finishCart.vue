@@ -7,7 +7,7 @@
           {{ totalValue }}
         </div>
         <div class="q-mt-xs text-subtitle1 absolute-right text-weight-bold">
-         {{getCart.length }} {{ getCart.length | plural }} 
+          {{ getCart.length }} {{ getCart.length | plural }}
         </div>
       </q-card-section>
       <q-card-actions class="q-mb-xs" align="center">
@@ -39,6 +39,7 @@
 </template>
 <script>
 export default {
+  name: "finishCart",
   data() {
     return {};
   },
@@ -55,8 +56,8 @@ export default {
   },
   filters: {
     plural(value) {
-        if (value > 1) return  'Itens'
-        else return 'Item'
+      if (value > 1) return "Itens";
+      else return "Item";
     }
   },
   methods: {

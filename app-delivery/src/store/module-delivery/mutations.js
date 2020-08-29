@@ -1,5 +1,8 @@
 import { store } from "quasar/wrappers";
 
+export function SET_LOGIN(store, payload) {
+  store.login = payload
+}
 export function SET_CATEGORY(store, payload) {
   store.category = payload.category;
 }
